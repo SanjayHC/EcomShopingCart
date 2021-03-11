@@ -1,0 +1,5 @@
+com\sanjay\shopApp.class
+com\sanjay\bean\Product.class
+com\sanjay\controller\ProductController.class
+com\sanjay\Dao\ShopRepository.class
+com\sanjay\service\ProductService.class
