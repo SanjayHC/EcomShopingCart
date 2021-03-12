@@ -4,11 +4,6 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sanjay.bean.Product;
-import com.sanjay.bean3.CategoryBean;
 import com.sanjay.service.ProductService;
 
 import lombok.RequiredArgsConstructor;
@@ -62,27 +56,33 @@ public class ProductController {
 		productservice.deleteproduct(id);
 	}
 	
+	/*when request comes for product/price particular product with that price will be shown*/
 	@RequestMapping(method = RequestMethod.GET, value = "/price")
 	public List<Product> findbyprice(@RequestParam double price){
 		return productservice.findbyprice(price);	
 	}
 	
+	/*when request comes for product/name particular product with that name will be shown */
 	@RequestMapping(method = RequestMethod.GET, value = "/name")
 	public List<Product> findbypname(@RequestParam String name){
 		return productservice.findbyname(name);
 	}
 	
+	/*when request comes for product/sort that products will be sorted by the names*/
 	@RequestMapping(method = RequestMethod.GET, value = "/sort")
 	 public List<Product> getAllsortname()
 	 {
 		return productservice.getAllProductsort();
 	 }
 	
+	/*when request comes for product/sort/id all the products will be sorted based on their id*/
 	@RequestMapping(method = RequestMethod.GET, value = "/sort/id")
 	 public List<Product> getAllsortid()
 	 {
 		return productservice.sortbyid();
 	 }
+	
+	/*when request comes for product/sort/price all the product will be sorted based on their price*/
 	@RequestMapping(method = RequestMethod.GET, value = "/sort/price")
 	 public List<Product> getAllsortprice()
 	 {

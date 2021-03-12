@@ -49,14 +49,17 @@ public class ProductService  {
 		productrepository.save(p);
 	}
 	
+	/*when request comes for product/price this findbyprice method will be called & particular product with that price will be shown*/
 	public List<Product> findbyprice(double price){
 		return productrepository.findAllByPrice(price);
 	}
 	
+	/*when request comes for product/name this findbyname method will be called & particular product with that name will be shown*/
 	public List<Product> findbyname(String name){
 		return productrepository.findAllByName(name);
 	}
 	
+	/*when request comes for product/sort this getallproduct method will be called & all products will be sorted based on their name*/
 	 public List<Product> getAllProductsort()
 	    {
 		 Sort sortOrder = Sort.by("name"); 
@@ -65,6 +68,7 @@ public class ProductService  {
 		return list;
 	    }
 	 
+	/*when request comes for product/sort/id this sortbyid method will be called & all products will be sorted based on their id*/
 	 public List<Product> sortbyid()
 	    {
 		 Sort sortOrder = Sort.by("productid"); 
@@ -72,6 +76,8 @@ public class ProductService  {
 		 List<Product> list = productrepository.findAll(sortOrder);
 		return list;
 	    }
+	 
+		/*when request comes for product/sort/id this sortbyprice method will be called & all products will be sorted based on their price*/
 	 public List<Product> sortbyprice()
 	    {
 		 Sort sortOrder = Sort.by("price"); 
