@@ -22,17 +22,19 @@ public class ItemController {
 	@Autowired
 	private ItemService itemservice;
 	
+	/*when request comes for /item with the post method the items will be added*/
 	@PostMapping()
 	public void addProduct(@RequestBody ItemBean item) {
 		itemservice.addItem(item);
 	}
 	
-	
+	/*when request comes for /item with the post method all the item will be shown*/
 	@RequestMapping(method = RequestMethod.GET)
 	public List<ItemBean> show() {	
 		return itemservice.getAllItems();
 	}
 	
+	/*when request comes for /item/update the particular item will be updated*/
 	@RequestMapping(method = RequestMethod.PUT, value = "/update")
 	public void update(@RequestBody ItemBean item) {
 	itemservice.updateitem(item);
