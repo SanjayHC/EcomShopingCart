@@ -20,7 +20,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/product")
+@RequestMapping(value ="/product")
 public class ProductController {
 	
 	@Autowired
